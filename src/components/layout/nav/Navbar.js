@@ -2,23 +2,23 @@ import { NavLink } from 'react-router-dom'
 import React from "react"
 import Navlogo from './Navlogo'
 import './navbar.css'
-import {Button} from '@mui/material'
+import { NavItem, NavMenu } from '@mui-treasury/components/menu/navigation';
 
 
 function Navbar(){
-
+    
 
     return(
-        <>
-            <Button to='/' component={NavLink} > <Navlogo /></Button>
-            <Button style={{color:'white'}} to='/catalogo' component={NavLink} > Catalogo</Button>
-            <Button style={{color:'white'}} to='/categoria/entrada' component={NavLink}> Entradas</Button>
-            <Button style={{color:'white'}} to='/categoria/plato' component={NavLink}> Platos </Button>
-            <Button style={{color:'white'}} to='/categoria/postre' component={NavLink}> Postres </Button>
-            <Button style={{color:'white'}} to='/favorito' component={NavLink}> Favoritos</Button>
-            <Button style={{color:'white'}} to='/cart' component={NavLink}> <span className="material-icons">shopping_cart</span></Button>
-            <Button style={{color:'white'}} to='/user' component={NavLink}> <span className="material-icons">account_circle</span> </Button>
-        </>
+        <NavMenu gutter={'120px'}>
+            <NavItem to='/' as={NavLink} ><Navlogo/></NavItem>
+            <NavItem style={{color:'white'}} to='/catalogo' as={NavLink} > Catalogo</NavItem>
+            <NavItem style={{color:'white'}} to='/categoria/entrada' as={NavLink}> Entradas</NavItem>
+            <NavItem style={{color:'white'}} to='/categoria/plato' as={NavLink}> Platos </NavItem>
+            <NavItem style={{color:'white'}} to='/categoria/postre' as={NavLink}> Postres </NavItem>
+            <NavItem style={{color:'white'}} to='/favorito' as={NavLink}> Favoritos</NavItem>
+            <NavItem style={{color:'white'}} to='/cart' as={NavLink}> <span className="material-icons">shopping_cart</span></NavItem>
+            <NavItem style={{color:'white'}} to='/user' as={NavLink}> <span className="material-icons">account_circle</span> </NavItem>
+        </NavMenu>
     )
 }
 export default Navbar

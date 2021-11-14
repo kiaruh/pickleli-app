@@ -3,7 +3,7 @@ import ItemListContainer from "../../itemList/ItemListContainer"
 import { TableContainer, Table, TableBody } from '@mui/material'
    
 
-function Main(props){
+function Home(props){
 
     return(
         <TableContainer>
@@ -18,4 +18,4 @@ function Main(props){
     )
     }
 
-export default Main
+export default Home
