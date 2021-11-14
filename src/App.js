@@ -1,5 +1,5 @@
 import React from 'react'
-//import { CartContext } from './context/CartContext'
+import { CartContext } from './context/CartContext'
 import Header from './components/layout/header/Header'
 import Home from './components/layout/routes/Home'
 import Footer from './components/layout/footer/Footer'
@@ -15,7 +15,7 @@ function App() {
 
   return (
     <BrowserRouter>
-    {/* <CartContext> */}
+    <CartContext>
     <Container>
       <Header/>
           <Routes>
@@ -28,7 +28,7 @@ function App() {
           </Routes>
       <Footer/>
       </Container>
-      {/* </CartContext> */}
+      </CartContext>
       </BrowserRouter>
   )
 }

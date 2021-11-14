@@ -1,6 +1,6 @@
 
 import ItemCount from '../itemCount/ItemCount';
-import { Button, TableCell } from '@mui/material'
+import { TableCell } from '@mui/material'
 
 
 function Item({name,qty,initialstock,price,pic}){
@@ -11,8 +11,6 @@ function Item({name,qty,initialstock,price,pic}){
             <h2>{name}</h2>
             <h3>${price}</h3>
             <ItemCount stock={qty} inicial={initialstock} />
-            <Button>Agregar a carrito</Button>
-            <Button>Mas del producto</Button>
         </TableCell>
 
     )
