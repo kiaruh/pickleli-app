@@ -3,30 +3,34 @@ import { NavLink } from 'react-router-dom'
 import { Button, TableCell } from '@mui/material'
 import {CartData} from '../../context/CartContext'
 
-function ItemCount({stock,inicial}) {
+function ItemCount({props, count}) {
 
-    const [cantidad, setCantidad] = useState(inicial)
-    const {setCart} = useContext(CartData)
+    const [cantidad, setCantidad] = useState(props.initialstock)
+    const {addToCart} = useContext(CartData)
 
     const sumarContador = () => {
-        if(cantidad < stock){
+        if(cantidad < props.qty){
         return setCantidad(cantidad +1)
         }else{
-           return setCantidad(stock)
+           return setCantidad(props.qty)
        }
     }
     const restarContador = () => {
        if(cantidad>1){
         return setCantidad(cantidad -1)
        }else{
-           return setCantidad(inicial)
+           return setCantidad(props.qty)
        }
     }
     const Producto = {
-        id: '10',
-        price: '$999',
+        id: props.id,
+        price: props.price,
+        name: props.name,
+        img: props.img,
         qty: cantidad
     }
+
+    
 
 
     return(
@@ -34,8 +38,12 @@ function ItemCount({stock,inicial}) {
             <Button variant='contained' className='material-icons' onClick={sumarContador}>+</Button>
             <p>{cantidad}</p>
             <Button variant='contained' className='material-icons' onClick={restarContador}>-</Button>
-            <p>stock disponible: {stock}</p>
-            <Button onClick={()=>{setCart(Producto)}}>Agregar a carrito</Button>
+            <p>stock disponible: {props.qty}</p>
+            <Button onClick={()=>{
+                count(cantidad)
+                addToCart(Producto, cantidad)
+
+            }}>Agregar a carrito</Button>
             <Button to='/cart' component={NavLink}> check out</Button>
         </TableCell>
     )

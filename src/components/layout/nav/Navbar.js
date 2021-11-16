@@ -9,7 +9,7 @@ function Navbar(){
     
 
     return(
-        <NavMenu gutter={'120px'}>
+        <NavMenu gutter={'45px'}>
             <NavItem to='/' as={NavLink} ><Navlogo/></NavItem>
             <NavItem style={{color:'white'}} to='/catalogo' as={NavLink} > Catalogo</NavItem>
             <NavItem style={{color:'white'}} to='/categoria/entrada' as={NavLink}> Entradas</NavItem>

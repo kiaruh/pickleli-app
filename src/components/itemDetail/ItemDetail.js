@@ -1,20 +1,21 @@
-// import {useState} from "react"
+import {useState} from "react"
 import ItemCount from "../itemCount/ItemCount"
 import { Card } from '@mui/material'
 
 
-const ItemDetail = (details) => {
-    // const [count, setCount] = useState(0)
+const ItemDetail = (props) => {
+     const [count, setCount] = useState(0)
     // const producto = {id,name,price,pic}
+    const producto = props.props
 
     return (
         <>
-            <picture> <img style={{width:'400px', height:'500px'}} src={details.details.img} alt="" /></picture>
-            <h2>{details.details.name}</h2>
-            <h3>${details.details.price}</h3>
-            <ItemCount details={details.details} stock={details.details.qty} inicial={details.details.initialstock} />
-            <Card>{details.details.description}</Card>
-            <Card>Catidad seleccionado: </Card>
+            <picture> <img style={{width:'400px', height:'500px'}} src={producto.img} alt="" /></picture>
+            <h2>{producto.name}</h2>
+            <h3>${producto.price}</h3>
+            <ItemCount props={producto} count={(count)=>setCount(count)} />
+            <Card>{producto.description}</Card>
+            <Card>Catidad seleccionado: {count}</Card>
         </>
     )
 }

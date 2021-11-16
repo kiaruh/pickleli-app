@@ -5,7 +5,7 @@ import { AppBar, IconButton , Toolbar} from '@mui/material'
 function Header() {
     
     return(
-        <AppBar style={{background: "#f6416c"}} color="transparent" >   
+        <AppBar style={{background: "#f6416c"}} position='sticky' color="transparent" >   
         <Toolbar>
         <IconButton edge='start' aria-label='menu' >
         <Navbar/>

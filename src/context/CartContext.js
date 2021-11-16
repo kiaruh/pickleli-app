@@ -6,15 +6,16 @@ const { Provider} = CartData
 
  const CartContext = ({children}) => {
 
-    const Producto = {
-        id: '000',
-        price: '$0000'
+    const [cart, setCart] = useState([])
+    const [subtotal, setSubtotal] = useState([])
+
+    const addToCart = (item,qty) => {
+        setCart([...cart, item])
+        setSubtotal([...subtotal, qty*item.price])
     }
 
-    const [cart, setCart] = useState(Producto)
-
     return(
-        <Provider value={{cart, setCart}}>
+        <Provider value={{cart, setCart,addToCart}}>
             {children}
         </Provider>
 

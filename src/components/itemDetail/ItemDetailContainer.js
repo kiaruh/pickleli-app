@@ -27,7 +27,7 @@ const ItemDetailContainer = (props) => {
                 <Table>
                     <TableBody>
                         
-            <ItemDetail details={details} />
+            <ItemDetail props={details} />
                        
                     </TableBody>
                 </Table>    
