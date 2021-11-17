@@ -1,8 +1,10 @@
 import { NavLink } from 'react-router-dom'
 import React from "react"
 import Navlogo from './Navlogo'
+import CartWidget from '../../cart/CartWidget'
 import './navbar.css'
 import { NavItem, NavMenu } from '@mui-treasury/components/menu/navigation';
+
 
 
 function Navbar(){
@@ -16,7 +18,7 @@ function Navbar(){
             <NavItem style={{color:'white'}} to='/categoria/plato' as={NavLink}> Platos </NavItem>
             <NavItem style={{color:'white'}} to='/categoria/postre' as={NavLink}> Postres </NavItem>
             <NavItem style={{color:'white'}} to='/favorito' as={NavLink}> Favoritos</NavItem>
-            <NavItem style={{color:'white'}} to='/cart' as={NavLink}> <span className="material-icons">shopping_cart</span></NavItem>
+            <NavItem style={{color:'white'}} to='/cart' as={NavLink}><CartWidget/></NavItem>
             <NavItem style={{color:'white'}} to='/user' as={NavLink}> <span className="material-icons">account_circle</span> </NavItem>
         </NavMenu>
     )

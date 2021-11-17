@@ -19,6 +19,7 @@ const { Provider} = CartData
         console.log("index:"+index)
         setCart(auxCart.filter((producto,i) => i !== index))
     }
+    
 
 
     return(
