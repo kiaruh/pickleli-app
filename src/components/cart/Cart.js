@@ -4,7 +4,6 @@ import CartItem from "./CartItem"
 
 const Cart = () => {
     const {cart} = useContext(CartData)
-   console.log(cart)
     
    if(cart.length === 0) {
        return (
