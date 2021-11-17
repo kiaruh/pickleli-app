@@ -1,7 +1,7 @@
 import { TableCell } from '@mui/material'
 
 
-function Item({name,qty,initialstock,price,pic}){
+function Item({name,price,pic}){
 
     return(
         <TableCell>

@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { CartData } from "../../context/CartContext"
+import { Button } from '@mui/material'
 
 const CartItem = (props) =>{
     const { removeFromCart } = useContext(CartData)
@@ -13,7 +14,7 @@ const CartItem = (props) =>{
             <p>Precio: ${producto.price}</p>
             <p>Cantidad: {producto.qty}</p>
             <p>Subtotal: ${producto.price*producto.qty}</p>
-            <button onClick={()=>removeFromCart(producto)}>Quitar</button>
+            <Button variant='contained' onClick={()=>removeFromCart(producto)}>Quitar</Button>
 
         </div>
 
