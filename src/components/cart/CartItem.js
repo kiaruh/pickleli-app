@@ -1,11 +1,10 @@
-// import { useContext } from "react"
-// import { CartData } from "../../context/CartContext"
+import { useContext } from "react"
+import { CartData } from "../../context/CartContext"
 
 const CartItem = (props) =>{
+    const { removeFromCart } = useContext(CartData)
     const producto = props.props
-    // const {subtotal, setSubtotal} = useContext(CartData)
 
-    // setSubtotal([...subtotal, producto.price*producto.qty])
    console.log(props)
     return(
         <div>
@@ -14,7 +13,7 @@ const CartItem = (props) =>{
             <p>Precio: ${producto.price}</p>
             <p>Cantidad: {producto.qty}</p>
             <p>Subtotal: ${producto.price*producto.qty}</p>
-            <button onClick>Quitar</button>
+            <button onClick={()=>removeFromCart(producto)}>Quitar</button>
 
         </div>
 

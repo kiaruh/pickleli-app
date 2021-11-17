@@ -13,9 +13,16 @@ const { Provider} = CartData
         setCart([...cart, item])
         setSubtotal([...subtotal, qty*item.price])
     }
+    const removeFromCart = (item) => {
+        const auxCart = cart
+        const index = auxCart.findIndex(producto => producto.id ===item.id)
+        console.log("index:"+index)
+        setCart(auxCart.filter((producto,i) => i !== index))
+    }
+
 
     return(
-        <Provider value={{cart, setCart,addToCart}}>
+        <Provider value={{cart, setCart, addToCart , removeFromCart}}>
             {children}
         </Provider>
 

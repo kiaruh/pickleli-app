@@ -18,7 +18,6 @@ const Cart = () => {
         <>
             <h1>CART</h1>
             {cart.map( (e,i)=> <CartItem key={e+i} props={e}/>)}
-                    
             <h2>Total: ${}</h2>
         </>
     )
