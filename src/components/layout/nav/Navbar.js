@@ -15,7 +15,7 @@ function Navbar(){
             <NavItem to='/' as={NavLink} ><Navlogo/></NavItem>
             <NavItem style={{color:'white'}} to='/catalogo' as={NavLink} > Catalogo</NavItem>
             <NavItem style={{color:'white'}} to='/categoria/entrada' as={NavLink}> Entradas</NavItem>
-            <NavItem style={{color:'white'}} to='/categoria/plato' as={NavLink}> Platos </NavItem>
+            <NavItem style={{color:'white'}} to='/categoria/principal' as={NavLink}> Pricipal </NavItem>
             <NavItem style={{color:'white'}} to='/categoria/postre' as={NavLink}> Postres </NavItem>
             <NavItem style={{color:'white'}} to='/favorito' as={NavLink}> Favoritos</NavItem>
             <NavItem style={{color:'white'}} to='/cart' as={NavLink}><CartWidget/></NavItem>

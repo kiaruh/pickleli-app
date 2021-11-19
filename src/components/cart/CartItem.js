@@ -5,8 +5,6 @@ import { Button } from '@mui/material'
 const CartItem = (props) =>{
     const { removeFromCart } = useContext(CartData)
     const producto = props.props
-
-   console.log(props)
     return(
         <div>
             <h2>{producto.name}</h2>

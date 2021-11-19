@@ -2,20 +2,28 @@ import { useEffect , useState } from "react"
 import ItemList from "./ItemList"
 import { NavLink } from "react-router-dom"
 import { TableContainer, Table, TableBody , TableRow} from '@mui/material'
+import { firestore } from "../../firebase"
 
 function ItemListContainer(props){
-
+    
     const [products, setProducts] = useState([])
-     //`http://localhost:3001/products`
-    //`https://api-pickle.herokuapp.com/products`
 
     useEffect(()=>{
-        const obtenerData = async () => {
-            const data = await fetch(`https://api-pickle.herokuapp.com/products`)
-            const datajson = await data.json()
-            setProducts(datajson)
-         };
-        obtenerData()},[])
+
+
+        const db = firestore
+        const collection = db.collection("productos")
+        const promesa = collection.get()
+        var productos = []
+       
+        promesa.then((documents)=>{ documents.forEach((document)=>{ 
+            productos.push(document.data())
+            })
+            setProducts(productos)
+        })
+        
+
+    },[products])
 
     if (products.length === 0) {
         return <p>Cargando Productos... </p>}
