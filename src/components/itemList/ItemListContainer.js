@@ -19,8 +19,6 @@ function ItemListContainer(props){
         promesa.then((documents)=>{ documents.forEach((document)=>{ 
             productos.push({id:document.id, ...document.data()})
             })
-
-            console.log(productos)
             setProducts(productos)
         })
 
