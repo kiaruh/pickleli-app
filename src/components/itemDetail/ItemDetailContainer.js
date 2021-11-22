@@ -19,7 +19,7 @@ const ItemDetailContainer = (props) => {
 
         promesa.then((documents)=>{ 
             documents.forEach((document)=>{ 
-            if(document.data().id === id){
+            if(document.id === id){
                 setDetails(document.data())
             }})
         })

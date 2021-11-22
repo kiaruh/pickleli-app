@@ -18,7 +18,7 @@ function Category(props){
         promesa.then((documents)=>{ 
             documents.forEach((document)=>{ 
             if(document.data().category === category){
-                productos.push(document.data())
+                productos.push({id: document.id,...document.data()})
             }})
             setProducts(productos)
         })

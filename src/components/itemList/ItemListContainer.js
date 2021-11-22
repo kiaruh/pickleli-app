@@ -17,13 +17,25 @@ function ItemListContainer(props){
         var productos = []
        
         promesa.then((documents)=>{ documents.forEach((document)=>{ 
-            productos.push(document.data())
+            productos.push({id:document.id, ...document.data()})
             })
+
+            console.log(productos)
             setProducts(productos)
         })
+
+
+        // const promesa2 = promesa
+        // promesa2.then((documents)=>{ documents.forEach((document)=>{ 
+        //     console.log(document.data())  
+        //     console.log(document.id)
+        //     })})
+            
+        
+        
         
 
-    },[products])
+    },[])
 
     if (products.length === 0) {
         return <p>Cargando Productos... </p>}
