@@ -4,6 +4,7 @@ import { useParams } from "react-router"
 import { NavLink } from "react-router-dom"
 import { firestore } from "../firebase"
 
+
 function Category(props){
 
     const [products, setProducts] = useState([])
@@ -12,17 +13,15 @@ function Category(props){
     useEffect(()=>{
         const db = firestore
         const collection = db.collection("productos")
-        const promesa = collection.get()
+        const promesa = collection.where('category', '==', `${category}`).get()
         var productos = []
 
         promesa.then((documents)=>{ 
             documents.forEach((document)=>{ 
-            if(document.data().category === category){
-                productos.push({id: document.id,...document.data()})
-            }})
+                productos.push({id:document.id,...document.data()})
+            })
             setProducts(productos)
         })
-
     
     },[category])
 

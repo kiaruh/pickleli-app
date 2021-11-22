@@ -24,17 +24,6 @@ function ItemListContainer(props){
             setProducts(productos)
         })
 
-
-        // const promesa2 = promesa
-        // promesa2.then((documents)=>{ documents.forEach((document)=>{ 
-        //     console.log(document.data())  
-        //     console.log(document.id)
-        //     })})
-            
-        
-        
-        
-
     },[])
 
     if (products.length === 0) {
