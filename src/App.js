@@ -10,6 +10,8 @@ import Category from './components/Category'
 import Error from './components/layout/routes/Error'
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Container from '@mui/material/Container'
+import { Checkout } from './components/checkout/Checkout'
+
 
 function App() {
 
@@ -24,6 +26,7 @@ function App() {
             <Route path="/catalogo/" element={<ItemListContainer/>} />
             <Route path="/producto/:id" element={<ItemDetailContainer/>} />
             <Route path="/cart" element={<Cart/>} />
+            <Route path="/checkout" element={<Checkout/>} />
             <Route element={<Error/>}/>
           </Routes>
       <Footer/>
