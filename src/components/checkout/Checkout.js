@@ -1,44 +1,36 @@
-import { useContext, useState, useEffect } from "react"
+import { useContext, useState} from "react"
 import { CartData } from "../../context/CartContext"
 import { Button } from '@mui/material'
 import CheckoutItem from "./CheckoutItem"
 import { firestore } from "../../firebase"
-
-
+import firebase from 'firebase/app'
+import CheckoutForm from "./CheckoutForm"
 
 export const Checkout = () => {
-    const {cart} = useContext(CartData)
-    const [total, setTotal] = useState(0)
+    
+    const {cart, clearCart, total} = useContext(CartData)
+    
     const [id, setId] = useState('')
-
-    const calculateTotal = (cart) => {
-        let sum = 0
-        cart.forEach(item => {
-            sum += item.price * item.qty
-        })
-        setTotal(sum)
-    }
+    const [ user, setUser ] = useState({name:'', email:'', phone:''})
+    const [order, setOrder] = useState({})
 
     const checkout = () => {
-        const user = {
-            name: "Jose",
-            email: "jose@jose.com",
-            phone: "123456789",
-        }
+        
         const orden = {
+            date: firebase.firestore.Timestamp.now(),
             buyer: user,
             items: cart,
-            sum: total,
+            total: total,
         }
-
-        console.log(orden)
-
+        
         const db = firestore
         const coleccion = db.collection("ordenes")
-        const query = coleccion.add(orden)
+        const query = coleccion.add({orden})
 
         query
             .then((resultado) => {
+                setOrder(orden)
+                clearCart()
                 setId(resultado.id)
             })
             .catch((error)=>{
@@ -46,10 +38,7 @@ export const Checkout = () => {
             })
     }
     
-    useEffect(() => {calculateTotal(cart)}, [cart])
-    
-
-   if(cart.length === 0) {
+   if(cart.length === 0 && id === '') {
        return (
            <>
                 <h1>El carrito esta vacio</h1>
@@ -60,12 +49,22 @@ export const Checkout = () => {
     return (
         <div>
             <p>Tu orden se proceso con exito!</p>
-            <p>Numero de Compra : #<strong>{id}</strong></p>
+            <p><strong>Gracias por tu compra</strong></p>
+            <p>ID Compra : #<strong>{id}</strong></p>
+            <p>Nombre: {order.buyer.name}</p>
+            <p>Email: {order.buyer.email}</p>
+            <p>Telefono: {order.buyer.phone}</p>
+            {order.items.map((e,i) => <p key={e+i}>Producto: {e.name} x {e.qty} subtotal: {e.price * e.qty} </p>)}
+            <p>Total: ${order.total}</p>
+            <p></p>
+            
         </div>
     )}
     return (
         <div>
             <h1>Checkout</h1>
+            <h1>{user.name} {user.phone} {user.email}</h1>
+            <CheckoutForm user={user} setUser={setUser}/>
             {cart.map( (e,i)=> <CheckoutItem key={e+i} props={e}/>)}
             <h3>Total a pagar: ${total}</h3>
             <Button onClick={checkout}>Pagar</Button>
