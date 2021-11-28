@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 
 function CheckoutForm({setUser, user}){
     
-    const {register, errors, handleSubmit} = useForm()
+    const { handleSubmit} = useForm()
 
     const handleInputChange = (event) => {
         setUser({...user, [event.target.name]:event.target.value})
