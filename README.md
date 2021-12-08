@@ -1,5 +1,20 @@
-# pickleli
+# pickle: web-app para gestionar menu de restaurantes con el mismo formato de un e-commerce
 
-## Un web app para Menu de restaurante, del estilo e commerce
+## Demo
+### [PICKLE-LI](https://pickle-li.netlify.app/)
 
-### [Demo de la pagina web](https://pickle-li.netlify.app/)
+![ Alt text](./demo.gif)
+
+### React hooks & props:
+- useState
+- useEffect
+- useContext
+- lift state
+
+
+### Depedencias:
+ - Material-UI
+ - Firebase
+ - React-Router-Dom
+ - Yup
+ - React-hook-form
