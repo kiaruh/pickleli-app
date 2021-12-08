@@ -1,7 +1,7 @@
 import { useEffect , useState } from "react"
 import ItemList from "./ItemList"
 import { NavLink } from "react-router-dom"
-import { TableContainer, Table, TableBody , TableRow} from '@mui/material'
+import { Grid, Box} from '@mui/material'
 import { firestore } from "../../firebase"
 
 function ItemListContainer(props){
@@ -30,15 +30,17 @@ function ItemListContainer(props){
 
     return (
         
-            <TableContainer>
-                <Table>
-                    <TableBody>
+            <Box>
+                <Grid container spacing={2} columns={12}>
                         
-            {products.map((e,i)=> <TableRow key={e+i} > <NavLink to={'/producto/'+e.id} > <ItemList id={e.id} name={e.name} price={e.price} qty={e.qty} initialstock={e.initialstock} pic={e.img} /></NavLink> </TableRow> )}
+            {products.map((e,i)=> <Grid item md={4} key={e+i} > 
+                                    <NavLink to={'/producto/'+e.id} >
+                                         <ItemList id={e.id} name={e.name} price={e.price} qty={e.qty} initialstock={e.initialstock} pic={e.img} />
+                                    </NavLink> 
+                                 </Grid> )}
                         
-                    </TableBody>
-                </Table>    
-            </TableContainer>
+                </Grid>    
+            </Box>
        
     )
 }

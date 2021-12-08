@@ -1,7 +1,9 @@
 import {useState, useContext} from 'react'
 import { NavLink } from 'react-router-dom'
-import { Button, TableCell } from '@mui/material'
+import { Button} from '@mui/material'
 import {CartData} from '../../context/CartContext'
+import { Box} from '@mui/material'
+import Typography from '@mui/material/Typography';
 
 function ItemCount({props, count}) {
 
@@ -34,18 +36,20 @@ function ItemCount({props, count}) {
 
 
     return(
-        <TableCell>
-            <Button variant='contained' className='material-icons' onClick={sumarContador}>+</Button>
-            <p>{cantidad}</p>
-            <Button variant='contained' className='material-icons' onClick={restarContador}>-</Button>
-            <p>stock disponible: {props.qty}</p>
-            <Button onClick={()=>{
+        <Box container>
+            <Box item xs={12} style={{display:'flex'}}>
+            <Button size="small" variant='contained' className='material-icons' onClick={sumarContador}>+</Button>
+            <Typography variant='h6'> {cantidad} </Typography>
+            <Button size="small" variant='contained' className='material-icons' onClick={restarContador}>-</Button>
+            </Box>
+            <Typography variant="body2" color="text.secondary">stock disponible: {props.qty}</Typography>
+            <Button size="small" onClick={()=>{
                 count(cantidad)
                 addToCart(Producto, cantidad)
 
             }}>Agregar a carrito</Button>
-            <Button to='/cart' component={NavLink}> check out</Button>
-        </TableCell>
+            <Button size="small" to='/cart' component={NavLink}> check out</Button>
+        </Box>
     )
 
     }

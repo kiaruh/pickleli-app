@@ -3,6 +3,8 @@ import ItemList from "./itemList/ItemList"
 import { useParams } from "react-router"
 import { NavLink } from "react-router-dom"
 import { firestore } from "../firebase"
+import { Grid, Box} from '@mui/material'
+import Typography from '@mui/material/Typography';
 
 
 function Category(props){
@@ -30,10 +32,16 @@ function Category(props){
 
 
     return (
-        <div className='ProductList'>
-            <h2>Categoria: {category}</h2>
-            {products.map((e,i)=> <NavLink key={e+i} to={'/producto/'+e.id} > <ItemList id={e.id} name={e.name} price={e.price} qty={e.qty} initialstock={e.initialstock} pic={e.img} /></NavLink>)}
-        </div>
+        <Box>
+            <Typography variant='h4'>Categoria: {category}</Typography>
+            <Grid container spacing={5} columns={12}>
+            
+            {products.map((e,i)=> <Grid item md={4} key={e+i}>  <NavLink to={'/producto/'+e.id} > 
+                                    <ItemList id={e.id} name={e.name} price={e.price} qty={e.qty} initialstock={e.initialstock} pic={e.img} />   
+                                </NavLink></Grid>)}
+
+            </Grid>
+        </Box>
     )
 }
 export default Category

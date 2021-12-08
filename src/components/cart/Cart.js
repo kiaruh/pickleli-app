@@ -3,6 +3,7 @@ import { CartData } from "../../context/CartContext"
 import CartItem from "./CartItem"
 import { Button } from '@mui/material'
 import { NavLink } from 'react-router-dom'
+import Typography from '@mui/material/Typography';
 
 const Cart = () => {
     const {cart, total, calculateTotal} = useContext(CartData)
@@ -12,16 +13,16 @@ const Cart = () => {
     if(cart.length === 0) {
        return (
            <>
-                <h1>El carrito esta vacio</h1>
+                <Typography variant='h4'>El carrito esta vacio</Typography> 
            </>
        )
     }
 
     return (
         <>
-            <h1>CART</h1>
+            <Typography variant='h5'>Carrito: </Typography>
             {cart.map( (e,i)=> <CartItem key={e+i} props={e}/>)}
-            <h2>Total: ${total}</h2>
+            <Typography variant='h5'>Total: ${total}</Typography>
             <NavLink to='/checkout'><Button variant='contained'>Finalizar Compra</Button></NavLink>
         </>
     )

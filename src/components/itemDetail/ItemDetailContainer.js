@@ -1,7 +1,6 @@
 import { useEffect , useState } from "react"
 import ItemDetail from "./ItemDetail"
 import { useParams } from "react-router"
-import './itemDetail.css'
 import { TableContainer, Table, TableBody } from '@mui/material'
 import { firestore } from "../../firebase"
 
