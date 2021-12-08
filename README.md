@@ -3,13 +3,14 @@
 ## Demo
 ### [PICKLE-LI](https://pickle-li.netlify.app/)
 
+### GIF
 ![ Alt text](./demo.gif)
 
 ### React hooks & props:
 - useState
 - useEffect
 - useContext
-- lift state
+- lift up state
 
 
 ### Depedencias:
